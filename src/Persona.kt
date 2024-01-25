@@ -1,7 +1,8 @@
 /**
  * La clase persona tiene un constructor primario con el peso y la altura de una persona y cuenta con métodos exclusivos de esta clase.
+ * @param peso: Double -> Número que representa el peso de la persona
+ * @param altura: Double -> Número que representa la altura de la persona
  */
-
 class persona(peso: Double, altura: Double){
     var peso: Double = 0.0
         set(value){
@@ -21,6 +22,12 @@ class persona(peso: Double, altura: Double){
         this.imc = (this.peso/(this.altura * this.altura))
     }
 
+    /**
+     * @constructor se encargará de establecer los atributos del objeto cuando se le pasen en el main()
+     * @param nombre: String -> El nombre de la persona
+     * @param peso: Double -> Número que representa el peso de la persona
+     * @param altura: Double -> Númeroo que represeneta la altura de la persona
+     */
     constructor(nombre:String, peso: Double, altura: Double) : this(peso, altura){
         this.nombre = nombre
     }
@@ -55,7 +62,6 @@ class persona(peso: Double, altura: Double){
      * La funcion cambiarNombre() nos permitirá cambiar el nombre de una persona por otro que ingresará el usuario en la consola.
      */
 
-
     fun cambiarNombre(){
         var nom = ""
         print("Ingresa el nuevo nombre: ")
@@ -86,12 +92,24 @@ class persona(peso: Double, altura: Double){
             this.altura = alt
         } else println("Altura no cambiada")
     }
+
+    /**
+     * saludar() imprime un mensaje en la consola con el nombre de la persona
+     */
     fun saludar(){
         println("Hola, soy ${this.nombre}, un placer")
     }
+
+    /**
+     * descripcion() al igual que saludar() imprime un mensaje en la consola en el que aparecen varios datos de la persona
+     */
     fun descripcion(){
         println("${this.nombre} con altura de ${this.altura}m y un peso de ${this.peso}KG (${saludable()}) ")
     }
+
+    /**
+     * saludable() se encarga de asignar una descripción al valor del imc que tenga una persona a través de this.imc
+     */
     fun saludable(): String {
         var salud = ""
         if (this.imc < 18.5) salud = "Peso insuficiente"
@@ -100,6 +118,4 @@ class persona(peso: Double, altura: Double){
         else salud = "Obesidad"
         return salud
     }
-
-
 }
